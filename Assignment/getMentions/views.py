@@ -17,7 +17,7 @@ from io import BytesIO
 from azure.storage.blob import BlobServiceClient as bs
 from django.db.models import Q
 
-
+#Views working
 
 # Created views for handling post and get request from clinets.
 @api_view(['GET','POST'])
@@ -28,6 +28,7 @@ def grabMentions(request):
             blobIDFromB = b.objects.filter(blob = request.data['blob']).first().id
             #get lower rank of the range from the request
             requestedRankLower = int(request.data['lower'])
+            
             #get upper rank of the range from the request
             requestedRankUpper = int(request.data['upper'])
             # fetch corresponding entries from mention using indexes such as blob id, and rank
